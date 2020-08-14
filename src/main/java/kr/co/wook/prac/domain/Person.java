@@ -1,7 +1,9 @@
 package kr.co.wook.prac.domain;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,31 +13,22 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
+@ToString(exclude = "phoneNumber")
+@NoArgsConstructor
 public class Person {
     @Id
     @GeneratedValue
     private long id;
-
-
     private String name;
-
-
     private int age;
-
     private String hobby;
+
     private String address;
     //LocalDate 확인 해보기
     private LocalDate birthday;
 
-//소스에서 command + n : class 관련 추가 항목 추가 가능
+    private String phoneNumber;
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
+    //exclude 사용시 log에 찍히지 않게 된다.
 
 }

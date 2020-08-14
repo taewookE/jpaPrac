@@ -8,7 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class PersonRepositoryTest {
@@ -23,6 +22,7 @@ class PersonRepositoryTest {
 
         person.setAge(10);
         person.setName("wook");
+
         personRepository.save(person);
         //ctrl+shift+r : test실행
 //      System.out.println(personRepository.findAll()); //person hash code 값이 출력 , toString override 되어 있지 않아 문제 발생.
