@@ -1,34 +1,43 @@
 package kr.co.wook.prac.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.time.LocalDate;
 
 @Entity
-@Getter
-@Setter
-@ToString(exclude = "phoneNumber")
 @NoArgsConstructor
+@RequiredArgsConstructor
+@Data
 public class Person {
     @Id
     @GeneratedValue
     private long id;
+
+    @NonNull
     private String name;
+
+    @NonNull
     private int age;
+
     private String hobby;
 
-    private String address;
-    //LocalDate 확인 해보기
+    @NonNull
+    private String bloodType;
+
     private LocalDate birthday;
+    private String job;
 
-    private String phoneNumber;
+    @ToString.Exclude
+    private int phoneNumber;
 
-    //exclude 사용시 log에 찍히지 않게 된다.
+    @OneToOne
+    private Block block;
+
 
 }
+
+
